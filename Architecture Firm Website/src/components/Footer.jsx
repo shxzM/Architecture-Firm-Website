@@ -39,15 +39,15 @@ const Footer = () => {
             <div className={styles.contactSection}>
               <div className={styles.phoneSection}>
                 <h3>PHONE</h3>
-                <p>+918587885885</p>
+                <p>+919045005510</p>
                 <p>10 AM to 7 PM (All Days)</p>
               </div>
 
               <div className={styles.addressSection}>
                 <h3>ADDRESS</h3>
-                <p>FF-57, Vyapaar Kendra</p>
-                <p>C- Block, Sushant Lok-1,</p>
-                <p>Gurugram</p>
+                <p>Roop Mehal, Prem Gali</p>
+                <p>Kholi Number 420,</p>
+                <p><b>Excuse Me Please</b></p>
               </div>
             </div>
           </div>
@@ -55,13 +55,13 @@ const Footer = () => {
 
         <div className={styles.footerBottom}>
           <div className={styles.copyright}>
-            <p>© 2024 MWM SPACES. All rights reserved.</p>
+            <p>© 2025 Tashdid Architects. All rights reserved.</p>
           </div>
           <div className={styles.termsSection}>
             <a href="#">Terms & Conditions</a>
           </div>
           <div className={styles.brandingSection}>
-            <p>Branding & Website Designed By <a href="#" className={styles.hintt}>HINTT</a></p>
+            <p>Branding & Website Designed By <a href="https://sarverjii.github.io/Portfolio-Website" className={styles.hintt}>VirtuallyTrue</a></p>
           </div>
         </div>
       </div>
