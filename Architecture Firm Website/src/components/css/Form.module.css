@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .FormBackground {
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url("../../assets/Formbg.jpeg");
+    background-position: center;
+    background-size: cover;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .divforborder {
+    border: 1px solid gold;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .ContactContainer {
+    flex: 1;
+    padding: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .ContactContainer h2 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .ContactContainer h1 {
+    font-size: clamp(1rem,2rem,2rem);
+    font-weight: 300;
+    line-height: 1.3;
+    margin-top: 40px;
+  }
+  
+  .FormContainer {
+    flex: 1;
+    background-color: white;
+    padding: 40px 30px;
+  }
+  
+  .FormContainer form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .FormContainer input,
+  .FormContainer textarea {
+    width: 48%;
+    font-size: 15px;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .FormContainer textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .FormContainer button {
+    width: 100%;
+    background-color: #4e4a2f;
+    color: white;
+    padding: 14px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .FormContainer button:hover {
+    background-color: #39351f;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .divforborder {
+      flex-direction: column;
+    }
+  
+    .FormContainer input,
+    .FormContainer textarea {
+      width: 100%;
+    }
+
+    .FormBackground{
+        padding: 10px;
+    }
+  }
+  

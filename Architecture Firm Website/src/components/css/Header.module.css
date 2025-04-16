@@ -1,0 +1,239 @@
+/* Header.module.css */
+
+/* Header base styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    transition: all 0.3s ease;
+  }
+  
+  .scrolled {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  /* Logo styles */
+  .logo a {
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    color: #3C4529; /* olive-800 */
+    text-decoration: none;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo span {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .logo img{ 
+    width: 70px;
+    margin-right: 10px;
+  }
+  
+  /* Desktop navigation */
+  .desktopNav {
+    display: none;
+  }
+  
+  @media (min-width: 1024px) {
+    .desktopNav {
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  .navLink {
+    margin: 0 1rem;
+    color: #3C4529; /* olive-800 */
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s ease;
+  }
+  
+  .navLink:hover {
+    color: #5C6840; /* olive-600 */
+  }
+  
+  .contactButton {
+    display: flex;
+    align-items: center;
+    background-color: #D5C3A8; /* tan-400 */
+    color: #3C4529; /* olive-900 */
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    margin-left: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .contactButton svg {
+    margin-left: 0.25rem;
+  }
+  
+  .contactButton:hover {
+    background-color: #C0AE93; /* tan-500 */
+  }
+  
+  /* Mobile menu button */
+  .menuButton {
+    display: block;
+    background: none;
+    border: none;
+    color: #3C4529; /* olive-800 */
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .menuButton {
+      display: none;
+    }
+  }
+  
+  /* Mobile menu overlay */
+  .mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2A2F1C; /* dark olive color */
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .mobileMenuContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem;
+  }
+  
+  .mobileMenuHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+  
+  .mobileLogo a {
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    color: #D5C3A8; /* tan color */
+    text-decoration: none;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+  }
+  
+  .mobileLogo img{ 
+    width: 70px;
+    margin-right: 10px;
+  }
+  .mobileLogo span {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .closeButton {
+    background: none;
+    border: none;
+    color: #D5C3A8; /* tan color */
+    cursor: pointer;
+    padding: 0.5rem;
+    display: none; /* Hide the close button as it's not shown in your image */
+  }
+  
+  /* Mobile navigation */
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .mobileNavLink {
+    margin: 0.75rem 0;
+    color: #D5C3A8; /* tan color */
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 300;
+    transition: color 0.2s ease;
+  }
+  .mobileNavLinkClose {
+    margin: 0.75rem 0;
+    color: white; /* tan color */
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 300;
+    transition: color 0.2s ease;
+  }
+  
+  .mobileNavLink:hover,
+  .mobileNavLink:focus {
+    color: white;
+  }
+  
+  /* Mobile contact button */
+  .mobileContactWrapper {
+    margin-bottom: 3rem;
+margin-right: 2rem;  }
+  
+  .mobileContactButton {
+    display: block;
+    width: 100%;
+    background-color: #D5C3A8; /* tan color */
+    color: #2A2F1C; /* dark olive */
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    font-size: 1rem;
+  }
+  
+  .mobileContactButton:hover {
+    background-color: #C0AE93; /* darker tan */
+  }
+  
+  /* Social icons */
+  .socialIcons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+  
+  .socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D5C3A8; /* tan color */
+    border: 1px solid #D5C3A8; /* tan color */
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .socialIcon:hover {
+    color: white;
+    border-color: white;
+  }

@@ -1,0 +1,198 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.heroSection {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.fullscreenVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 34%;
+    left: 10%;
+    text-align: left;
+    color: white;
+    z-index: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+    font-size: 10vh;
+    font-weight: 100;
+    margin-bottom: 3vh;
+}
+
+.button {
+    font-size: 1.3rem;
+    background-color: antiquewhite;
+    border: none;
+    padding: 15px 24px;
+    color: black;
+    border-radius: 5px;
+}
+
+
+.AboutSection{
+    padding: 10vh 0vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.AboutSection p{
+    font-size: clamp(1.3rem, 2.2vw, 2.6rem);
+    text-align: center;
+    margin: 0 10vw;
+    margin-bottom: 30px;
+}
+
+.AboutSection button {
+    font-size: clamp(1rem, 1.1rem, 1.3rem);
+    background-color: antiquewhite;
+    border: none;
+    padding: 15px 24px;
+    color: black;
+    border-radius: 5px;
+}
+
+.featuresContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  
+.ProjectSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ProjectsHeading{
+    color: rgb(194, 172, 144);
+    font-weight: 100;
+    font-size: 6vw;
+}
+.ProjectFilterButton {
+    background-color: white;
+    padding: 0.8rem 2rem;
+    margin: 20px 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .ProjectFilterButton:hover {
+    background-color: rgba(250, 235, 215, 0.373);
+  }
+  
+  .ProjectFilterButton:focus {
+    outline: none;
+  }
+  
+  /* Active (selected) style */
+  .active {
+    background-color: rgba(178, 130, 67, 0.373);
+  }
+
+  .ProjectsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 10px;
+  }
+
+
+
+  .StatSection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem;
+  }
+
+
+
+  .ExploreSection{
+    height: 80vh;
+    width: 100vw;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../assets/Explorebg.avif");    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 40px 0px;
+  }
+  .ExploreSection div{
+    font-size: clamp(0.5rem, 0.4rem);
+    margin-bottom: 20px;
+    color: antiquewhite;
+  }
+  .ExploreSection h3{
+    color: antiquewhite;
+    font-size: clamp(0.5rem, 5rem);
+  }
+
+  .ExploreSection p{
+    color: white;
+    font-size: clamp(1rem, 2rem, 3rem);
+    margin: 30px 20vw;
+  }
+
+
+  
+
+
+
+
+
+
+
+  
+
+/* Responsive tweaks */
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 7vh;
+    }
+    .overlay {
+        top: 45%;
+    }
+    .button {
+        font-size: 1.1rem;
+        padding: 13px 22px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 4vh;
+    }
+    .overlay {
+        top: 60%;
+    }
+    .button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
