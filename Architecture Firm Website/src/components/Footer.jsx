@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './css/Footer.module.css';
 // Import your logo image - adjust the path as needed
 import logo from '../assets/Logo.png'; 
+import { Link } from 'react-router-dom';
+
 
 const Footer = () => {
   return (
@@ -27,12 +29,11 @@ const Footer = () => {
             <div className={styles.siteMapSection}>
               <h3>SITE MAP</h3>
               <ul className={styles.siteLinks}>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">PROJECTS</a></li>
-                <li><a href="#">SERVICES</a></li>
-                <li><a href="#">BLOG</a></li>
-                <li><a href="#">GALLERY</a></li>
+                <li><Link to="/">HOME</Link></li>
+                <li><Link to="/about">ABOUT</Link></li>
+                <li><Link to="/projects">PROJECTS</Link></li>
+                <li><Link to="/services">SERVICES</Link></li>
+                <li><Link to="/gallery">GALLERY</Link></li>
               </ul>
             </div>
 

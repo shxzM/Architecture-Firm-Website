@@ -1,0 +1,45 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7f5f1;
+    border-radius: 5px;
+    padding: 20px 24px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .textGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #5c4430;
+    text-transform: uppercase;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #5c4430;
+    text-transform: uppercase;
+  }
+  

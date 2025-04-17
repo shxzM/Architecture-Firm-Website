@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Logo from "../assets/Logo.png"
 import styles from './css/Header.module.css';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   // Handle scroll effect for header background
   useEffect(() => {
@@ -24,6 +26,11 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Check if current path matches the link path
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
@@ -31,31 +38,30 @@ const Header = () => {
         <div className={styles.logo}>
           <a href="/">
             <img src={Logo} alt="Logo" />
-            <span>Tashdid Architects</span>
+            <span className={scrolled ? styles.darkText : ''}>Tashdid Architects</span>
           </a>
         </div>
 
         {/* Desktop Navigation */}
         <nav className={styles.desktopNav}>
-          <a href="/" className={styles.navLink}>Home</a>
-          <a href="/about" className={styles.navLink}>About</a>
-          <a href="/projects" className={styles.navLink}>Projects</a>
-          <a href="/services" className={styles.navLink}>Services</a>
-          <a href="/blog" className={styles.navLink}>Blog</a>
-          <a href="/gallery" className={styles.navLink}>Gallery</a>
-          <a href="/contact" className={styles.contactButton}>
+          <Link to="/" className={`${styles.navLink} ${isActive('/') ? styles.activeLink : ''} ${scrolled ? styles.darkText : ''}`}>Home</Link>
+          <Link to="/about" className={`${styles.navLink} ${isActive('/about') ? styles.activeLink : ''} ${scrolled ? styles.darkText : ''}`}>About</Link>
+          <Link to="/projects" className={`${styles.navLink} ${isActive('/projects') ? styles.activeLink : ''} ${scrolled ? styles.darkText : ''}`}>Projects</Link>
+          <Link to="/services" className={`${styles.navLink} ${isActive('/services') ? styles.activeLink : ''} ${scrolled ? styles.darkText : ''}`}>Services</Link>
+          <Link to="/gallery" className={`${styles.navLink} ${isActive('/gallery') ? styles.activeLink : ''} ${scrolled ? styles.darkText : ''}`}>Gallery</Link>
+          <Link to="/contact" className={`${styles.contactButton} ${isActive('/contact') ? styles.activeContactButton : ''}`}>
             Contact Us 
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 17L17 7"/>
               <path d="M7 7h10v10"/>
             </svg>
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
         <button 
           onClick={toggleMenu} 
-          className={styles.menuButton}
+          className={`${styles.menuButton} ${scrolled ? styles.darkIcon : ''}`}
           aria-label="Toggle menu"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -88,20 +94,18 @@ const Header = () => {
 
             {/* Mobile Navigation Links */}
             <nav className={styles.mobileNav}>
-              <div className={styles.mobileNavLinkClose }onClick={toggleMenu}>&#10761;</div>
-              <a href="/" className={styles.mobileNavLink}>Home</a>
-              <a href="/about" className={styles.mobileNavLink}>About</a>
-              <a href="/projects" className={styles.mobileNavLink}>Projects</a>
-              <a href="/services" className={styles.mobileNavLink}>Services</a>
-              <a href="/blog" className={styles.mobileNavLink}>Blog</a>
-              <a href="/gallery" className={styles.mobileNavLink}>Gallery</a>
+              <Link to="/" className={`${styles.mobileNavLink} ${isActive('/') ? styles.activeMobileLink : ''}`}>Home</Link>
+              <Link to="/about" className={`${styles.mobileNavLink} ${isActive('/about') ? styles.activeMobileLink : ''}`}>About</Link>
+              <Link to="/projects" className={`${styles.mobileNavLink} ${isActive('/projects') ? styles.activeMobileLink : ''}`}>Projects</Link>
+              <Link to="/services" className={`${styles.mobileNavLink} ${isActive('/services') ? styles.activeMobileLink : ''}`}>Services</Link>
+              <Link to="/gallery" className={`${styles.mobileNavLink} ${isActive('/gallery') ? styles.activeMobileLink : ''}`}>Gallery</Link>
             </nav>
 
             {/* Contact Button */}
             <div className={styles.mobileContactWrapper}>
-              <a href="/contact" className={styles.mobileContactButton}>
+              <Link to="/contact" className={`${styles.mobileContactButton} ${isActive('/contact') ? styles.activeMobileContactButton : ''}`}>
                 Contact Us
-              </a>
+              </Link>
             </div>
 
             {/* Social Icons */}

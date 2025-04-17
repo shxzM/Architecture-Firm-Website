@@ -1,0 +1,73 @@
+/* ServicesGrid.module.css */
+.servicesContainer {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 2rem 1rem;
+  }
+  
+  .servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .serviceCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #e9e9e7;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    min-height: 200px;
+    transition: all 0.3s ease;
+  }
+  
+  .serviceCard:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .serviceCard h2 {
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .learnMore {
+    font-size: 1rem;
+    color: #a5937a;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    font-weight: 300;
+    transition: color 0.3s ease;
+  }
+  
+  .learnMore:hover {
+    color: #a58f72;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media screen and (max-width: 768px) {
+    .servicesGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .serviceCard {
+      padding: 2rem 1.5rem;
+    }
+  }
+  
+  /* For mobile devices */
+  @media screen and (max-width: 480px) {
+    .serviceCard {
+      padding: 1.5rem 1rem;
+      min-height: 150px;
+    }
+    
+    .serviceCard h2 {
+      margin-bottom: 1rem;
+    }
+  }

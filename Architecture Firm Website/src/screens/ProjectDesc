@@ -1,0 +1,11 @@
+import styles from "./css/ProjectDesc.module.css"
+
+function ProjectDesc(){
+    return(
+        <>
+
+        </>
+    )
+}
+
+export default ProjectDesc

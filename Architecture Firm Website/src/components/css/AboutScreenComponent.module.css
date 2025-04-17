@@ -1,0 +1,27 @@
+.card {
+    border: 2px solid #d6c6b3;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    min-width: 250px;
+  }
+  
+  .number {
+    font-size: 1.2rem;
+    color: #b49b79;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+  }
+  
+  .paragraph {
+    font-size: 1rem;
+    color: #555;
+  }
+  

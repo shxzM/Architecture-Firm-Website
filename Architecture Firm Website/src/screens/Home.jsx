@@ -15,6 +15,7 @@ import Form from '../components/Form';
 import Footer from '../components/Footer';
 
 import StatCard from '../components/StatCard';
+import { Link } from 'react-router-dom';
 
 function Home() {
 
@@ -42,13 +43,13 @@ function Home() {
                     <h1 className={styles.title}>
                         Creating <br />Spaces That Tell <br />Magnificent Stories
                     </h1>
-                    <button className={styles.button}>View All Projects &#8599;</button>
+                    <Link to="/projects" className={styles.button}>View All Projects &#8599;</Link>
                 </div>
             </section>
 
             <section className={styles.AboutSection}>
                 <p>We are the best luxury design company, comprised of an experienced team of interior designers, craftsmen, and innovative technicians. Together, we offer you the highest quality, made-to-measure details, creating a magnificent space you’ll be proud to call “mine”!</p>
-                <button>About Us &#8599;</button>
+                <Link to="/about" className={styles.button}>About Us &#8599;</Link>
                 <div className={styles.featuresContainer}>
                     <FeatureCard Icon={FaTags} title="COMPETITIVE PRICING" />
                     <FeatureCard Icon={FaIndustry} title="IN-HOUSE MANUFACTURING" />
@@ -59,7 +60,7 @@ function Home() {
 
             <section className={styles.ProjectSection}>
                 <h1 className={styles.ProjectsHeading}>Our PROJECTS</h1>
-                <div>
+                <div className={styles.ButtonConatiner}>
                     <button
                         className={`${styles.ProjectFilterButton} ${selectedFilter === 'Commercial' ? styles.active : ''}`}
                         onClick={() => handleFilterClick('Commercial')}
@@ -70,7 +71,7 @@ function Home() {
                     <button
                         className={`${styles.ProjectFilterButton} ${selectedFilter === 'Residential' ? styles.active : ''}`}
                         onClick={() => handleFilterClick('Residential')}
-                    >
+                    > 
                         Residential
                     </button>
                 </div>
@@ -131,7 +132,7 @@ function Home() {
 
                 </div>
 
-                <button className={styles.button}>View All My Projects &#8599;</button>
+                <Link to="/projects" className={styles.button}>View All My Projects &#8599;</Link>
                 
             </section>
 
@@ -140,7 +141,7 @@ function Home() {
                 <div><FaPalette/></div>
                 <h3>AS UNIQUE AS YOU</h3>
                 <p>We love creating unique and functional spaces that tell the stories of our clients' lifestyles and personalities.</p>
-                <button className={styles.button}>Explore Now &#8599;</button>
+                <Link to="/projects" className={styles.button}>Explore Now &#8599;</Link>
             </section>
 
             <section className={styles.StatSection}>
