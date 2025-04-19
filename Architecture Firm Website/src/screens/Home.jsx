@@ -9,15 +9,16 @@ import Form from '../components/Form';
 import Footer from '../components/Footer';
 
 import StatCard from '../components/StatCard';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Home() {
 
     const [selectedFilter, setSelectedFilter] = useState('');
+    const navigate = useNavigate()
 
-  const handleFilterClick = (filter) => {
-    setSelectedFilter(filter === selectedFilter ? '' : filter); // toggle off if clicked again
-  };
+    const ShowProject = (projectId) => {
+        navigate(`/projects/${projectId}`);
+      }
 
 
     return (
@@ -55,7 +56,7 @@ function Home() {
             <section className={styles.ProjectSection}>
                 <h1 className={styles.ProjectsHeading}>Our PROJECTS</h1>
                 <div className={styles.ProjectsContainer}>
-                    <ProjectsList numberOfProjects={6}/>
+                    <ProjectsList onClick={ShowProject} numberOfProjects={6}/>
                 </div>
 
                 <Link to="/projects" className={styles.button}>View All My Projects &#8599;</Link>

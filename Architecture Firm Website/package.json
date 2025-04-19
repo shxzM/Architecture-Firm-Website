@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "cloudinary": "^2.6.0",
+    "crypto-browserify": "^3.12.1",
+    "crypto-js": "^4.2.0",
     "firebase": "^11.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
