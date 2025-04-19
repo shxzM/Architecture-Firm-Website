@@ -1,127 +1,70 @@
 .dashboardContainer {
-    width: 100vw;
-    height: 100vh;
-    background-color: #fefaf6;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: antiquewhite;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-  
-  .logoSection {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-  }
-  
-  .title {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 0;
-  }
-  
-  .menuIcon {
-    display: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  .nav ul {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    align-items: center;
-  }
-  
-  .nav li {
-    cursor: pointer;
-    font-weight: 500;
-    color: #333;
-    transition: color 0.2s ease;
-  }
-  
-  .nav li:hover {
-    color: #0077ff;
-  }
-  
-  .signOut {
-    padding: 10px 20px;
-    background-color: #0077ff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: 0.3s;
-  }
-  
-  .signOut:hover {
-    background-color: #36506d;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #222;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.sectionHeader h3 {
+  font-size: 1.5rem;
+  color: #444;
+}
+
+.viewAllButton {
+  background-color: #1e40af;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.viewAllButton:hover {
+  background-color: #1c3aa9;
+}
+
+@media (max-width: 768px) {
   .main {
-    padding: 2rem;
-    flex: 1;
+    padding: 1rem;
   }
 
-  .horizontalRuler{
-    height: 1px;
-    width: 100vw;
-    background-color: black;
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
-  .main h3{
-    font-size: 3rem;
+  .viewAllButton {
+    width: 100%;
   }
-  
-  /* 🔽 Responsive */
-  @media (max-width: 768px) {
-    .menuIcon {
-      display: block;
-    }
-  
-    .nav {
-      display: none;
-      width: 100%;
-      background-color: antiquewhite;
-      padding: 1rem;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    }
-  
-    .nav.open {
-      display: block;
-    }
-  
-    .nav ul {
-      flex-direction: column;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-  
-    .nav li,
-    .signOut {
-      width: 100%;
-      text-align: left;
-    }
-  }
-  
+}

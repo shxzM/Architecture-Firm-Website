@@ -55,7 +55,7 @@ function Home() {
             <section className={styles.ProjectSection}>
                 <h1 className={styles.ProjectsHeading}>Our PROJECTS</h1>
                 <div className={styles.ProjectsContainer}>
-                    <ProjectsList numberOfProjects={3}/>
+                    <ProjectsList numberOfProjects={6}/>
                 </div>
 
                 <Link to="/projects" className={styles.button}>View All My Projects &#8599;</Link>

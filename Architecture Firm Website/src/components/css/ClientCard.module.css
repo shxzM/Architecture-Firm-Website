@@ -1,0 +1,48 @@
+.Card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px; /* makes it more square-like */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .Card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .infoSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .infoSection h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .location {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .budget {
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .status {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1e88e5;
+  }
+  

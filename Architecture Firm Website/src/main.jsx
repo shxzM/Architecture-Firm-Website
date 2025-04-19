@@ -15,6 +15,10 @@ import AdminDashboard from './screens/AdminDashboard';
 import ProtectedRoute from "./components/ProtectedRoute"
 import ProjectUpdate from './screens/ProjectUpdate';
 import ProjectDetails from './screens/ProjectDetails';
+import MessageDetails from './screens/MessageDetails';
+import AdminProjects from './screens/AdminProjects';
+import AdminMessages from './screens/AdminMessages';
+import AdminClients from './screens/AdminClient';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -38,7 +42,28 @@ createRoot(document.getElementById('root')).render(
       <Route path="/update/:projectId" element={
         <ProtectedRoute>
           <ProjectUpdate />
-        </ProtectedRoute>} />
+        </ProtectedRoute>}
+      />
+      <Route path="/message/:messageId" element={
+        <ProtectedRoute>
+          <MessageDetails />
+        </ProtectedRoute>}
+      />
+      <Route path="/AdminProjects" element={
+        <ProtectedRoute>
+          <AdminProjects />
+        </ProtectedRoute>}
+      />
+      <Route path="/AdminMessages" element={
+        <ProtectedRoute>
+          <AdminMessages />
+        </ProtectedRoute>}
+      />
+      <Route path="/AdminClients" element={
+        <ProtectedRoute>
+          <AdminClients />
+        </ProtectedRoute>}
+      />
 
       
 

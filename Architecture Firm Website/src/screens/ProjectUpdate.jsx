@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
+import styles from './css/ProjectUpdate.module.css';
+import AdminHeader from '../components/AdminHeader';
 
 export default function ProjectUpdate() {
   const { projectId } = useParams();
@@ -13,7 +15,6 @@ export default function ProjectUpdate() {
       try {
         const projectRef = doc(db, 'Projects', projectId);
         const projectSnap = await getDoc(projectRef);
-
         if (projectSnap.exists()) {
           const data = projectSnap.data();
           setProject({ id: projectSnap.id, ...data });
@@ -30,116 +31,100 @@ export default function ProjectUpdate() {
     fetchProject();
   }, [projectId]);
 
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    const updated = { ...project, [id]: value };
+    console.log('Updated Project:', updated);
+    setProject(updated);
+  };
+  
+  const handleRadioChange = (e) => {
+    const isCommercial = e.target.value === 'commercial';
+    const updated = { ...project, CommericalorResidential: isCommercial };
+    console.log('Updated Project:', updated);
+    setProject(updated);
+  };
+
+  const handleNewImageChange = () => {
+    alert('Image upload is currently disabled.');
+  };
+
+  const handleDeleteImage = () => {
+    alert('Image deletion is currently disabled.');
+  };
+
   if (loading) return <p>Loading...</p>;
   if (!project) return <p>Project not found</p>;
 
-  const extractPublicId = (url) => {
-    const parts = url.split('/');
-    const filename = parts[parts.length - 1];
-    return filename.split('.')[0]; // remove extension
-  };
-
-  const handleDeleteImage = async (url, index) => {
-    const publicId = extractPublicId(url);
-  
-    try {
-      // Call your Firebase Cloud Function
-      const res = await fetch('https://<your-region>-tashdid-architects.cloudfunctions.net/deleteCloudinaryImage', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ publicId }),
-      });
-  
-      const result = await res.json();
-  
-      if (res.ok && result.success) {
-        // Remove from Firestore image list
-        const updatedImages = project.Images.filter((_, i) => i !== index);
-        setProject((prev) => ({ ...prev, Images: updatedImages }));
-  
-        await updateDoc(doc(db, 'Projects', projectId), {
-          Images: updatedImages,
-        });
-  
-        alert('Image deleted successfully.');
-      } else {
-        console.error(result);
-        alert('Failed to delete image.');
-      }
-    } catch (error) {
-      console.error('Delete error:', error);
-      alert('Error deleting image.');
-    }
-  };
-  
-
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setProject((prev) => ({ ...prev, [id]: value }));
-  };
-
-  const handleRadioChange = (e) => {
-    setProject((prev) => ({
-      ...prev,
-      CommericalorResidential: e.target.value === 'commercial',
-    }));
-  };
-
   return (
-    <div style={{ padding: '20px' }}>
-      {/* Form Fields */}
-      <label htmlFor="Title">Title: </label>
-      <input type="text" id="Title" value={project.Title} onChange={handleChange} />
+    <>
+      <AdminHeader />
 
-      <br /><br />
-      <label htmlFor="Location">Location: </label>
-      <input type="text" id="Location" value={project.Location} onChange={handleChange} />
+      <div className={styles.container}>
+        <h2>Update Project</h2>
 
-      <br /><br />
-      <label htmlFor="Date">Date: </label>
-      <input type="date" id="Date" value={project.Date} onChange={handleChange} />
+        <label htmlFor="Title">Title:</label>
+        <input type="text" id="Title" value={project.Title} onChange={handleChange} />
 
-      <br /><br />
-      <span>Project Type: </span>
-      <label>
-        <input
-          type="radio"
-          name="projectType"
-          value="commercial"
-          checked={project.CommericalorResidential === true}
-          onChange={handleRadioChange}
-        /> Commercial
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="projectType"
-          value="residential"
-          checked={project.CommericalorResidential === false}
-          onChange={handleRadioChange}
-        /> Residential
-      </label>
+        <label htmlFor="Location">Location:</label>
+        <input type="text" id="Location" value={project.Location} onChange={handleChange} />
 
-      <br /><br />
-      <label htmlFor="Body">Body: </label>
-      <input type="text" id="Body" value={project.Body} onChange={handleChange} />
+        <label htmlFor="Date">Date:</label>
+        <input type="date" id="Date" value={project.Date} onChange={handleChange} />
 
-      <br /><br />
-      <strong>Images:</strong>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '10px' }}>
-        {project.Images?.map((img, index) => (
-          <div key={index}>
-            <img src={img} alt={`Project ${index}`} style={{ width: '150px', borderRadius: '8px' }} />
-            <br />
-            <button onClick={() => handleDeleteImage(img, index)}>Delete This Photo</button>
+        <label>Project Type:</label>
+        <div className={styles.radioGroup}>
+          <label>
+            <input
+              type="radio"
+              name="projectType"
+              value="commercial"
+              checked={project.CommericalorResidential === true}
+              onChange={handleRadioChange}
+            />
+            Commercial
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="projectType"
+              value="residential"
+              checked={project.CommericalorResidential === false}
+              onChange={handleRadioChange}
+            />
+            Residential
+          </label>
+        </div>
+
+        <label htmlFor="Body">Description:</label>
+        <textarea id="Body" value={project.Body} onChange={handleChange}></textarea>
+
+        <hr />
+        <label>Add New Images:</label>
+        <input type="file" multiple onChange={handleNewImageChange} />
+        <button className={styles.uploadButton} disabled>
+          Upload Selected Images
+        </button>
+        <hr />
+
+        <div className={styles.imageSection}>
+          <strong>Current Images:</strong>
+          <div className={styles.imageGrid}>
+            {project.Images?.map((img, index) => (
+              <div key={index} className={styles.imageCard}>
+                <img src={img} alt={`Project ${index}`} />
+                <button onClick={handleDeleteImage} disabled>
+                  Delete
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
 
-      <br /><br />
-      <button>Submit</button>
-    </div>
+        <button className={styles.submitButton} onClick={() => alert('Submit logic goes here')}>
+          Submit All Updates
+        </button>
+      </div>
+    </>
   );
 }

@@ -11,6 +11,7 @@ export default function AddProject() {
   const [images, setImages] = useState([]);
   const [com_or_red, setCom_or_Red] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState('');
 
   const CLOUD_NAME = 'dw4ibgki9'; // 🔁 Replace with your actual cloud name
   const UPLOAD_PRESET = 'Tashdid Architects'; // 🔁 Replace with your unsigned upload preset
@@ -33,7 +34,19 @@ export default function AddProject() {
     return data.secure_url;
   };
 
+  const validateForm = () => {
+    if (!title || !body || !date || !location || images.length === 0) {
+      setError('Please fill in all fields and upload at least one image.');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+  
+
   const onSubmitProject = async () => {
+    if (!validateForm()) return;
+
     try {
       setUploading(true);
 
@@ -57,22 +70,46 @@ export default function AddProject() {
     }
   };
 
+  
+
   return (
     <div className={styles.AddProject}>
+      <h1>Add New Projects</h1>
       <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
-      <input type="text" placeholder="Body" onChange={(e) => setBody(e.target.value)} />
+      <textarea name="Body" id="body" placeholder='Body' onChange={(e) => setBody(e.target.value)} ></textarea>
       <input type="date" onChange={(e) => setDate(e.target.value)} />
       <input type="text" placeholder="Location" onChange={(e) => setLocation(e.target.value)} />
 
-      <label>
-        <input type="checkbox" onChange={(e) => setCom_or_Red(e.target.checked)} />
-        Commercial Project
-      </label>
+      <div className={styles.radioGroup}>
+    <label>
+      <input
+        type="radio"
+        name="projectType"
+        value="true"
+        checked={com_or_red === true}
+        onChange={() => setCom_or_Red(true)}
+      />
+      Commercial Project
+    </label>
+    <label>
+      <input
+        type="radio"
+        name="projectType"
+        value="false"
+        checked={com_or_red === false}
+        onChange={() => setCom_or_Red(false)}
+      />
+      Residential Project
+    </label>
+  </div>
 
-      <input type="file" multiple onChange={handleImageChange} required/>
-      <button onClick={onSubmitProject} disabled={uploading}>
+
+      <input type="file" multiple onChange={handleImageChange} required />
+      {error && <p className={styles.error}>{error}</p>}
+      <button onClick={onSubmitProject} disabled={uploading || !validateForm}>
         {uploading ? 'Uploading...' : 'Upload Project'}
       </button>
+
     </div>
   );
 }

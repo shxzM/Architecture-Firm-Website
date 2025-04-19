@@ -5,7 +5,6 @@ import { db } from '../config/firebase';
 import styles from './css/ProjectDetails.module.css'; // Import the CSS module
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-// ... other imports
 
 export default function ProjectDetails() {
   const { projectId } = useParams();

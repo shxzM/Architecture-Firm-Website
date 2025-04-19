@@ -9,7 +9,7 @@ function ProjectCard({ image, title, location, type, size, onClick }) {
       <div className={styles.overlay}>
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.details}>
-          {location} &nbsp; <span className={styles.dot}>•</span> &nbsp; {type} &nbsp; 
+          {location} &nbsp; <span className={styles.dot}>•</span > &nbsp; {type} &nbsp; 
         </p>
         <button className={styles.button} onClick={onClick}>
           <FaArrowRight />

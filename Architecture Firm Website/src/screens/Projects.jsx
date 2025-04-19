@@ -28,21 +28,6 @@ function Projects(){
             <h1>OUR PROJECTS</h1>
         </div>
         <p className={styles.intropara}>Welcome to Tashdid Architects, where we invite you to explore some of the most inspiring, luxurious, and thoughtful interior creations that elevate each project we undertake.</p>
-        <div className={styles.ButtonContainer}>
-            <button
-                className={`${styles.ProjectFilterButton} ${selectedFilter === 'Commercial' ? styles.active : ''}`}
-                onClick={() => handleFilterClick('Commercial')}
-            >
-                Commercial
-            </button>
-
-            <button
-                className={`${styles.ProjectFilterButton} ${selectedFilter === 'Residential' ? styles.active : ''}`}
-                onClick={() => handleFilterClick('Residential')}
-            >
-                 Residential
-            </button>
-        </div>
         <ProjectsList onClick = {ShowProject}/>  
         <Footer/>
     </>
