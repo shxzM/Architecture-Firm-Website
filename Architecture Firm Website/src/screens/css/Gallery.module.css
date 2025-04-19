@@ -44,6 +44,52 @@
     column-gap: 20px;
     padding: 0 40px;
   }
+
+
+  .galleryImage {
+    width: 100%;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+  }
+  
+  .galleryImage:hover {
+    transform: scale(1.02);
+  }
+  
+  .fullscreenOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: zoom-out;
+  }
+  
+  .fullscreenImage {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    animation: zoomIn 0.3s ease;
+  }
+  
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
   
   @media (max-width: 1024px) {
     .grid {

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './css/ProjectCard.module.css';
 import { FaArrowRight } from 'react-icons/fa';
 
-function ProjectCard({ image, title, location, type, size, onClick }) {
+function ProjectCardFirebase({ image, title, location, type, onClick, projectID }) {
   return (
     <div className={styles.card}>
       <img src={image} alt={title} className={styles.image} />
@@ -11,7 +11,7 @@ function ProjectCard({ image, title, location, type, size, onClick }) {
         <p className={styles.details}>
           {location} &nbsp; <span className={styles.dot}>•</span> &nbsp; {type} &nbsp; 
         </p>
-        <button className={styles.button} onClick={onClick}>
+        <button className={styles.button}  onClick={() => onClick(projectID)}>
           <FaArrowRight />
         </button>
       </div>
@@ -19,4 +19,4 @@ function ProjectCard({ image, title, location, type, size, onClick }) {
   );
 }
 
-export default ProjectCard;
+export default ProjectCardFirebase;

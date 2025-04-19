@@ -13,6 +13,8 @@ import Error404 from './screens/Error404';
 import Admin from './screens/Admin';
 import AdminDashboard from './screens/AdminDashboard';
 import ProtectedRoute from "./components/ProtectedRoute"
+import ProjectUpdate from './screens/ProjectUpdate';
+import ProjectDetails from './screens/ProjectDetails';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -26,14 +28,20 @@ createRoot(document.getElementById('root')).render(
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/admin" element={<Admin />} />
-      <Route
-          path="/Admin-Dashboard"
-          element={
-            <ProtectedRoute>
+      <Route path="/projects/:projectId" element={<ProjectDetails />} />
+      <Route path="/Admin-Dashboard" element={
+          <ProtectedRoute>
               <AdminDashboard />
             </ProtectedRoute>
           }
         />
+      <Route path="/update/:projectId" element={
+        <ProtectedRoute>
+          <ProjectUpdate />
+        </ProtectedRoute>} />
+
+      
+
     </Routes>
   </BrowserRouter>
 );

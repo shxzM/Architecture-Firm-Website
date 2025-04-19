@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.HeaderBG {
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 55vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  color: white;
+  flex-wrap: wrap;
+  padding: 2vw 4vw;
+  position: relative;
+}
+
+.HeaderBG::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.HeaderBG h2 {
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  font-weight: 800;
+  z-index: 1;
+}
+
+.rightHeading {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  z-index: 1;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  flex-wrap: wrap;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+.details {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.images {
+  margin-bottom: 3rem;
+}
+
+.images strong {
+  display: block;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+  text-align: center;
+  color: rgb(150, 133, 111);
+}
+
+.imageGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  flex: 1 1 calc(50% - 1rem); /* Around 3 per row on desktop */
+  max-width: calc(50% - 1rem);
+  transition: transform 0.2s ease;
+}
+
+.image:hover {
+  transform: scale(1.03);
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .image {
+    flex: 1 1 calc(50% - 1rem); /* 2 per row */
+    max-width: calc(50% - 1rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .image {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* Fullscreen modal image */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* ✅ 4. Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalImage {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  object-fit: contain;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .HeaderBG {
+    height: 45vh;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .rightHeading {
+    justify-content: center;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+}
+
+.loading, .notFound {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+}

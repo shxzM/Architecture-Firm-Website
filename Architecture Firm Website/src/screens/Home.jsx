@@ -4,13 +4,7 @@ import Video from "../assets/Video.mp4";
 import styles from "./css/Home.module.css";
 import { FaTags, FaIndustry, FaClock, FaPalette } from 'react-icons/fa';
 import FeatureCard from "../components/FeatureCard";
-import ProjectCard from '../components/ProjectCard';
-import Project1 from "../assets/Projects/Project1.png"
-import Project2 from "../assets/Projects/Project2.png"
-import Project3 from "../assets/Projects/Project3.png"
-import Project4 from "../assets/Projects/Project4.png"
-import Project5 from "../assets/Projects/Project5.png"
-import Project6 from "../assets/Projects/Project6.png"
+import ProjectsList from '../components/ProjectsList';
 import Form from '../components/Form';
 import Footer from '../components/Footer';
 
@@ -60,76 +54,8 @@ function Home() {
 
             <section className={styles.ProjectSection}>
                 <h1 className={styles.ProjectsHeading}>Our PROJECTS</h1>
-                <div className={styles.ButtonConatiner}>
-                    <button
-                        className={`${styles.ProjectFilterButton} ${selectedFilter === 'Commercial' ? styles.active : ''}`}
-                        onClick={() => handleFilterClick('Commercial')}
-                    >
-                        Commercial
-                    </button>
-
-                    <button
-                        className={`${styles.ProjectFilterButton} ${selectedFilter === 'Residential' ? styles.active : ''}`}
-                        onClick={() => handleFilterClick('Residential')}
-                    > 
-                        Residential
-                    </button>
-                </div>
                 <div className={styles.ProjectsContainer}>
-                    <ProjectCard
-                    image={Project1}
-                    title="Prestige Palace"
-                    location="Gurgaon"
-                    type="Residential"
-                    size="10500 SQFT"
-                    onClick={() => console.log("Go to Prestige Palace")}
-                    />
-
-                    <ProjectCard
-                    image={Project2}
-                    title="Nautical Escape"
-                    location="Gurgaon"
-                    type="Residential"
-                    size="7800 SQFT"
-                    onClick={() => console.log("Go to Nautical Escape")}
-                    />
-
-                    <ProjectCard
-                    image={Project3}
-                    title="Harmony House"
-                    location="New Delhi"
-                    type="Residential"
-                    size="5000 SQFT"
-                    onClick={() => console.log("Go to Harmony House")}
-                    />
-
-                    <ProjectCard
-                    image={Project4}
-                    title="Skyline Tower"
-                    location="Mumbai"
-                    type="Commercial"
-                    size="12000 SQFT"
-                    onClick={() => console.log("Go to Skyline Tower")}
-                    />
-
-                    <ProjectCard
-                    image={Project5}
-                    title="Oasis Office"
-                    location="Bangalore"
-                    type="Commercial"
-                    size="9500 SQFT"
-                    onClick={() => console.log("Go to Oasis Office")}
-                    />
-
-                    <ProjectCard
-                    image={Project6}
-                    title="Sunset Villa"
-                    location="Hyderabad"
-                    type="Residential"
-                    size="8700 SQFT"
-                    onClick={() => console.log("Go to Sunset Villa")}
-                    />
-
+                    <ProjectsList numberOfProjects={3}/>
                 </div>
 
                 <Link to="/projects" className={styles.button}>View All My Projects &#8599;</Link>
