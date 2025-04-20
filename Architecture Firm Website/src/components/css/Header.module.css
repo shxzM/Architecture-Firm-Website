@@ -8,6 +8,7 @@
   width: 100%;
   z-index: 50;
   transition: all 0.3s ease;
+  font-family: 'Figtree', sans-serif;
 }
 
 .scrolled {
@@ -36,13 +37,14 @@
 }
 
 .logo span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Figtree', sans-serif;
   color: white;
   transition: color 0.3s ease;
 }
 
 .logo .darkText {
   color: #3C4529; /* olive-800 when scrolled */
+  font-family: 'Figtree', sans-serif;
 }
 
 .logo img { 
@@ -88,6 +90,7 @@
 /* Dark text for when header background is white */
 .darkText {
   color: #3C4529 !important; /* olive-800 */
+  font-family: Figtree, sans-serif;
 }
 
 .navLink:hover {
@@ -114,6 +117,10 @@
 
 .contactButton:hover {
   background-color: #C0AE93; /* tan-500 */
+}
+
+.font-outfit{
+  font-family: 'Figtree', sans-serif;
 }
 
 .contactButton:hover svg {

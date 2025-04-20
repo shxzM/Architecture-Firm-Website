@@ -38,7 +38,7 @@ const Header = () => {
         <div className={styles.logo}>
           <a href="/">
             <img src={Logo} alt="Logo" />
-            <span className={scrolled ? styles.darkText : ''}>Tashdid Architects</span>
+            <span className={`${scrolled ? styles.darkText : ''}`}>Tashdid Architects</span>
           </a>
         </div>
 
@@ -81,7 +81,7 @@ const Header = () => {
               <div className={styles.mobileLogo}>
                 <a href="/">
                   <img src={Logo} alt="Logo" />
-                  <span>Tashdid Architects</span>
+                  <span className="font-outfit">Tashdid Architects</span>
                 </a>
               </div>
               <button onClick={toggleMenu} className={styles.closeButton} aria-label="Close menu">
