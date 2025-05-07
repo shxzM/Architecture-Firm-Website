@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import styles from "./css/About.module.css";
-import Mastermind from "../assets/Clinet.png";
+import Mastermind from "../assets/client.png";
 import AboutScreenComponent from "../components/AboutScreenComponent"
 import Footer from "../components/Footer"
 
@@ -21,9 +21,8 @@ function About() {
                 <img src={Mastermind} alt="Portrait of Pathak JI" />
                 <div className={styles.unclenamehead}>
                     <h1>Meet the <br />Mastermind</h1>
-                    <h2>Pathak JI</h2>
+                    <h2>Ar. KHALID ASLAM</h2>
                     <h3>CO-FOUNDER & CREATIVE DIRECTOR</h3>
-                    <p>Prernaa Mangla, the creative force at MWM Spaces with 14+ years in luxury interiors, crafts designs by harmonizing intricate details with a unique touch.</p>
                 </div>
             </div>
 
