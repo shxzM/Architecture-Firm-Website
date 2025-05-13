@@ -154,6 +154,12 @@ export default function ProjectUpdate() {
       return;
     }
 
+    // Input validation: ensure no required field is empty
+    if (!project.Title || !project.Location || !project.Date || typeof project.CommericalorResidential !== 'boolean' || !project.Body) {
+      alert('Please fill in all required fields (Title, Location, Date, Project Type, Description).');
+      return;
+    }
+
     try {
       let newImageUrls = [];
 
@@ -267,7 +273,7 @@ export default function ProjectUpdate() {
         <label>Add New Images:</label>
         <input type="file" multiple onChange={handleNewImageChange} />
         <button className={styles.uploadButton} onClick={submitButton}>
-          Upload Selected Images
+          Add Images to Project
         </button>
         <hr />
 
@@ -286,7 +292,7 @@ export default function ProjectUpdate() {
         </div>
 
         <button className={styles.submitButton} onClick={submitButton}>
-          Submit All Updates
+          Save Project Changes
         </button>
       </div>
     </>
