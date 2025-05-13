@@ -53,6 +53,68 @@
   background-color: #1c3aa9;
 }
 
+.passwordForm {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #1e40af;
+  box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.1);
+}
+
+.submitButton {
+  background-color: #1e40af;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #1c3aa9;
+}
+
+.error {
+  color: #dc2626;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.success {
+  color: #059669;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 768px) {
   .main {
     padding: 1rem;
@@ -66,5 +128,9 @@
 
   .viewAllButton {
     width: 100%;
+  }
+
+  .passwordForm {
+    padding: 1.5rem;
   }
 }
