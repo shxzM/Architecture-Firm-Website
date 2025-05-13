@@ -698,3 +698,163 @@
 | Actual Result | Message is shown indicating no projects are available. |
 | Status | Passed |
 | Remarks |  |
+
+## Admin Messages Page Test Cases
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AM-001 |
+| Test Title | Display All Messages |
+| Preconditions | Admin is logged in and navigates to Admin Messages page |
+| Test Steps | 1. Navigate to Admin Messages page<br>2. Observe the list of messages |
+| Test Data | Messages in the database |
+| Expected Result | All messages from the database should be displayed in a list |
+| Actual Result | All messages from the database should be displayed in a list |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AM-002 |
+| Test Title | Message Card Displays Correct Info |
+| Preconditions | Admin is on Admin Messages page |
+| Test Steps | 1. Observe each message card<br>2. Check that first name, last name, location, budget, and read status are shown |
+| Test Data | Messages with various data |
+| Expected Result | Each message card displays correct first name, last name, location, budget, and read/unread status |
+| Actual Result | Each message card displays correct first name, last name, location, budget, and read/unread status |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AM-003 |
+| Test Title | Click Message Card Navigates to Details |
+| Preconditions | Admin is on Admin Messages page |
+| Test Steps | 1. Click on a message card |
+| Test Data | Any message card |
+| Expected Result | Admin is navigated to the message details page for the selected message |
+| Actual Result | Admin is navigated to the message details page for the selected message |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AM-004 |
+| Test Title | Delete Message Functionality |
+| Preconditions | Admin is on Admin Messages page with at least one message |
+| Test Steps | 1. Click the delete (trash) icon on a message card<br>2. Confirm the deletion in the dialog<br>3. Observe the message is removed from the list |
+| Test Data | Any message card |
+| Expected Result | Message is deleted from the database and removed from the list |
+| Actual Result | Message is deleted from the database and removed from the list |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AM-005 |
+| Test Title | Delete Confirmation Dialog |
+| Preconditions | Admin is on Admin Messages page |
+| Test Steps | 1. Click the delete (trash) icon on a message card<br>2. Observe the confirmation dialog<br>3. Click 'Cancel' |
+| Test Data | Any message card |
+| Expected Result | Message is not deleted if deletion is cancelled |
+| Actual Result |  Message is not deleted if deletion is cancelled |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AM-006 |
+| Test Title | Read/Unread Status Indicator |
+| Preconditions | Admin is on Admin Messages page |
+| Test Steps | 1. Observe the status indicator on each message card |
+| Test Data | Messages with both read and unread status |
+| Expected Result | Unread messages show a green dot, read messages show a white dot |
+| Actual Result | Unread messages show a green dot, read messages show a white dot |
+| Status | Passed |
+| Remarks | |
+
+## Admin Clients Page Test Cases
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AC-001 |
+| Test Title | Display All Clients |
+| Preconditions | Admin is logged in and navigates to Admin Clients page |
+| Test Steps | 1. Navigate to Admin Clients page<br>2. Observe the list of clients |
+| Test Data | Clients in the database |
+| Expected Result | All clients from the database should be displayed in a list |
+| Actual Result | All clients from the database should be displayed in a list |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AC-002 |
+| Test Title | Client Card Displays Correct Info |
+| Preconditions | Admin is on Admin Clients page |
+| Test Steps | 1. Observe each client card<br>2. Check that first name, last name, location, email, and phone are shown |
+| Test Data | Clients with various data |
+| Expected Result | Each client card displays correct first name, last name, location, email, and phone |
+| Actual Result | Each client card displays correct first name, last name, location, email, and phone |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AC-003 |
+| Test Title | Add New Client - Successful Submission |
+| Preconditions | Admin is on Admin Clients page |
+| Test Steps | 1. Fill in all required fields in the add client form<br>2. Click 'Add Client' button |
+| Test Data | Valid client data |
+| Expected Result | New client is added to the database and appears in the client list |
+| Actual Result | New client is added to the database and appears in the client list |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AC-004 |
+| Test Title | Add New Client - Incomplete Submission |
+| Preconditions | Admin is on Admin Clients page |
+| Test Steps | 1. Leave one or more required fields empty in the add client form<br>2. Click 'Add Client' button |
+| Test Data | Incomplete client data |
+| Expected Result | Error message is shown, client is not added |
+| Actual Result | Error message is shown, client is not added |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AC-005 |
+| Test Title | Delete Client Functionality |
+| Preconditions | Admin is on Admin Clients page with at least one client |
+| Test Steps | 1. Click the delete (trash) icon on a client card<br>2. Confirm the deletion in the dialog<br>3. Observe the client is removed from the list |
+| Test Data | Any client card |
+| Expected Result | Client is deleted from the database and removed from the list |
+| Actual Result | Client is deleted from the database and removed from the list |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AC-006 |
+| Test Title | Delete Confirmation Dialog |
+| Preconditions | Admin is on Admin Clients page |
+| Test Steps | 1. Click the delete (trash) icon on a client card<br>2. Observe the confirmation dialog<br>3. Click 'Cancel' |
+| Test Data | Any client card |
+| Expected Result | Client is not deleted if deletion is cancelled |
+| Actual Result | Client is not deleted if deletion is cancelled |
+| Status | Passed |
+| Remarks | |
+
+| Field | Description |
+|-------|-------------|
+| Test Case ID | TC-AC-007 |
+| Test Title | Add Client Form UI Display |
+| Preconditions | Admin is on Admin Clients page |
+| Test Steps | 1. Observe the add client form at the top of the page |
+| Test Data | N/A |
+| Expected Result | Add client form is visible, styled as a card, and all input fields and button are present |
+| Actual Result | Add client form is visible, styled as a card, and all input fields and button are present |
+| Status | Passed |
+| Remarks | |

@@ -22,6 +22,7 @@ export const storage = getStorage(app);
 
 export const ProjectListCollectionRef = collection(db, "Projects")
 export const MessagesCollectionRef = collection(db, "Messages")
+export const ClientsCollectionRef = collection(db, "Clients")
 
 export const ADMIN_EMAIL = "sarthverma120@gmail.com";
 
