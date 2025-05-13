@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import styles from './css/ProjectUpdate.module.css';
 import AdminHeader from '../components/AdminHeader';
@@ -9,6 +9,7 @@ import CryptoJS from 'crypto-js'; // For generating the signature in the fronten
 
 export default function ProjectUpdate() {
   const { projectId } = useParams();
+  const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedImages, setSelectedImages] = useState([]);
@@ -179,6 +180,34 @@ export default function ProjectUpdate() {
     }
   };
 
+  const handleDeleteProject = async () => {
+    if (window.confirm('Are you sure you want to delete this project? This action cannot be undone.')) {
+      try {
+        // Delete all images from Cloudinary
+        if (project.Images && Array.isArray(project.Images)) {
+          const deletePromises = project.Images.map(async (imgUrl) => {
+            const publicId = getPublicIdFromUrl(imgUrl);
+            if (publicId) {
+              return deleteImageFromCloudinary(publicId);
+            }
+            return null;
+          });
+
+          await Promise.all(deletePromises);
+        }
+
+        // Delete the project document from Firestore
+        await deleteDoc(doc(db, 'Projects', projectId));
+        
+        // Navigate back to admin projects page
+        navigate('/AdminProjects');
+      } catch (error) {
+        console.error('Error deleting project:', error);
+        alert('Failed to delete project. Please try again.');
+      }
+    }
+  };
+
   if (loading) return <p>Loading...</p>;
   if (!project) return <p>Project not found</p>;
 
@@ -187,7 +216,16 @@ export default function ProjectUpdate() {
       <AdminHeader />
 
       <div className={styles.container}>
-        <h2>Update Project</h2>
+        <div className={styles.header}>
+          <h2>Update Project</h2>
+          <button 
+            onClick={handleDeleteProject} 
+            className={styles.deleteButton}
+            style={{ backgroundColor: '#dc2626', color: 'white', padding: '10px 20px', borderRadius: '4px' }}
+          >
+            Delete Project
+          </button>
+        </div>
 
         <label htmlFor="Title">Title:</label>
         <input type="text" id="Title" value={project.Title} onChange={handleChange} />
