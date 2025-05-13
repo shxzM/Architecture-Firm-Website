@@ -1,23 +1,46 @@
 import React, { useState } from 'react';
 import styles from "./css/AdminLoginForm.module.css";
-import { auth } from "../config/firebase";
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom'; // 👈 import navigate hook
+import { auth, ADMIN_EMAIL } from "../config/firebase";
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default function AdminLoginForm() {
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // 👈 use navigate
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const SignIn = async () => {
+    if (!password) {
+      alert("Please enter your password");
+      return;
+    }
+    
     try {
-      await signInWithEmailAndPassword(auth, "admin@gmail.com", password);
-      navigate("/Admin-Dashboard"); // 👈 redirect on success
+      setIsLoading(true);
+      await signInWithEmailAndPassword(auth, ADMIN_EMAIL, password);
+      navigate("/Admin-Dashboard", { replace: true });
     } catch (err) {
       console.error("Login error:", err.message);
       alert("Incorrect password or login issue.");
+    } finally {
+      setIsLoading(false);
     }
   };
+
+  const handleForgotPassword = async () => {
+    try {
+      setIsLoading(true);
+      await sendPasswordResetEmail(auth, ADMIN_EMAIL);
+      alert("Password reset email sent! Please check your inbox.");
+    } catch (err) {
+      console.error("Password reset error:", err.message);
+      alert("Failed to send password reset email. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const BackToWebsite = () => {
     navigate("/")
   }
@@ -30,9 +53,24 @@ export default function AdminLoginForm() {
         type="password"
         placeholder="Enter Password"
         onChange={(e) => setPassword(e.target.value)}
+        disabled={isLoading}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            SignIn();
+          }
+        }}
       />
-      <button onClick={SignIn}>Sign In</button>
-      <button onClick={BackToWebsite}>Back to Website</button>
+      <button onClick={SignIn} disabled={isLoading}>
+        {isLoading ? "Signing in..." : "Sign In"}
+      </button>
+      <Link 
+        onClick={handleForgotPassword} 
+        className={styles.forgotPassword}
+        style={{ pointerEvents: isLoading ? 'none' : 'auto' }}
+      >
+        Forgot Password?
+      </Link>
+      <button onClick={BackToWebsite} disabled={isLoading}>Back to Website</button>
     </div>
   );
 }

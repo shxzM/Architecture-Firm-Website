@@ -8,7 +8,8 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    position: relative;
   }
   
   .Card:hover {
@@ -44,5 +45,29 @@
     font-size: 0.9rem;
     font-weight: 500;
     color: #1e88e5;
+  }
+
+  .deleteButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #dc2626;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .deleteButton:hover {
+    background-color: rgba(220, 38, 38, 0.1);
+  }
+
+  .deleteButton svg {
+    font-size: 1rem;
   }
   

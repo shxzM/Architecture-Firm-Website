@@ -2,7 +2,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../config/firebase';
+import { auth, ADMIN_EMAIL } from '../config/firebase';
 
 export default function ProtectedRoute({ children }) {
   const [user, loading] = useAuthState(auth);
@@ -10,7 +10,7 @@ export default function ProtectedRoute({ children }) {
   if (loading) return <div>Loading...</div>;
 
   // If no user, redirect to login
-  if (!user || user.email !== "admin@gmail.com") {
+  if (!user || user.email !== ADMIN_EMAIL) {
     return <Navigate to="/admin" />;
   }
 
