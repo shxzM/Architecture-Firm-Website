@@ -858,3 +858,15 @@
 | Actual Result | Add client form is visible, styled as a card, and all input fields and button are present |
 | Status | Passed |
 | Remarks | |
+
+## Summary of Test Results
+
+| Section         | Tests Passed | Tests Failed | Not Implemented | Total Tests |
+|----------------|-------------|-------------|-----------------|-------------|
+| Public Website | 15          | 0           | 1               | 16          |
+| Admin Portal   | 7           | 1           | 0               | 8           |
+| Admin Dashboard| 16          | 0           | 0               | 16          |
+| Admin Projects | 13          | 0           | 0               | 13          |
+| Admin Messages | 6           | 0           | 0               | 6           |
+| Admin Clients  | 7           | 0           | 0               | 7           |
+| **TOTAL**      | **64**      | **1**       | **1**           | **66**      |

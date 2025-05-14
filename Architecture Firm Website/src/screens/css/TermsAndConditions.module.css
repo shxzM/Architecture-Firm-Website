@@ -1,5 +1,10 @@
-body, .terms-bg {
+.termsBg {
   background: #b39b7f !important;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-top: 70px;
 }
 
 .container {
