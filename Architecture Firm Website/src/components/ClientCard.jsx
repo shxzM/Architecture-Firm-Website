@@ -8,7 +8,7 @@ function ClientCard({ firstName, lastName, location, email, phone, messageID }) 
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this client?')) {
       try {
-        await deleteDoc(doc(db, 'Messages', messageID));
+        await deleteDoc(doc(db, 'Clients', messageID));
         // Refresh the page to update the list
         window.location.reload();
       } catch (error) {

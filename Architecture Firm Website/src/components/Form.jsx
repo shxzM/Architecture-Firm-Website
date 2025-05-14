@@ -1,6 +1,8 @@
 import styles from "./css/Form.module.css";
 import { MessagesCollectionRef } from '../config/firebase';
-import { addDoc } from 'firebase/firestore';
+import { ClientsCollectionRef } from '../config/firebase';
+
+import { addDoc, getDocs, query, where } from 'firebase/firestore';
 import { useState } from "react";
 
 function Form() {
@@ -27,6 +29,13 @@ function Form() {
 
     try {
       setUploading(true);
+
+      // Check if phone number is unique in Clients collection
+      const q = query(ClientsCollectionRef, where('Phone', '==', phone));
+      const querySnapshot = await getDocs(q);
+      const phoneExists = !querySnapshot.empty;
+
+      // Always add to Messages
       await addDoc(MessagesCollectionRef, {
         First_Name: firstname,
         Last_Name: lastname,
@@ -37,6 +46,17 @@ function Form() {
         Message: message,
         Read: false,
       });
+
+      // Only add to Clients if phone is unique
+      if (!phoneExists) {
+        await addDoc(ClientsCollectionRef, {
+          First_Name: firstname,
+          Last_Name: lastname,
+          Email: email,
+          Phone: phone,
+          Location: location,
+        });
+      }
 
       alert("Details submitted successfully!");
       // Optionally reset form fields here
