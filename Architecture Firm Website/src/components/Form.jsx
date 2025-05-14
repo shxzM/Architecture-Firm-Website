@@ -52,7 +52,7 @@ function Form() {
     <div className={styles.FormBackground}>
       <div className={styles.divforborder}>
         <div className={styles.ContactContainer}>
-          <h2>CONTACT US</h2>
+          <h2>Contact Us</h2>
           <h1>
             Ready to make your space <br /> magnificent?
           </h1>
