@@ -19,6 +19,7 @@ import MessageDetails from './screens/MessageDetails';
 import AdminProjects from './screens/AdminProjects';
 import AdminMessages from './screens/AdminMessages';
 import AdminClients from './screens/AdminClient';
+import TermsAndConditions from './screens/TermsAndConditions';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -64,9 +65,7 @@ createRoot(document.getElementById('root')).render(
           <AdminClients />
         </ProtectedRoute>}
       />
-
-      
-
+      <Route path="/terms" element={<TermsAndConditions />} />
     </Routes>
   </BrowserRouter>
 );

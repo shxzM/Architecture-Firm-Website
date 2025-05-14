@@ -1,0 +1,47 @@
+body, .terms-bg {
+  background: #b39b7f !important;
+}
+
+.container {
+  max-width: 800px;
+  margin: 3rem auto 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  font-family: 'Figtree', 'Outfit', Arial, sans-serif;
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #b39b7f;
+  text-align: center;
+}
+
+.container h2 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #3c4529;
+}
+
+.container p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+  .container h1 {
+    font-size: 2rem;
+  }
+  .container h2 {
+    font-size: 1.1rem;
+  }
+} 

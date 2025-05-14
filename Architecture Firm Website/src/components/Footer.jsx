@@ -17,11 +17,11 @@ const Footer = () => {
             </div>
             
             <div className={styles.socialLinks}>
-              <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-              <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-              <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
-              <a href="#" aria-label="Location"><i className="fas fa-map-marker-alt"></i></a>
+              <a href="https://www.instagram.com/tashdid_architects/" aria-label="Instagram" target='_blank'><i className="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/tashdid.architecture/" aria-label="Facebook" target='_blank'><i className="fab fa-facebook-f"></i></a>
+              <a href="https://www.linkedin.com/in/ar-khalid-aslam-574403172/?originalSubdomain=in" aria-label="LinkedIn" target='_blank'><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://www.youtube.com/@tashdidarchitects3210" aria-label="YouTube" target='_blank'><i className="fab fa-youtube"></i></a>
+              <a href="https://www.google.com/maps/place/Tashdid+Architects/data=!4m2!3m1!1s0x0:0x4a4fa7befd6b950d?sa=X&ved=1t:2428&ictx=111" aria-label="Location" target='_blank'><i className="fas fa-map-marker-alt"></i></a>
             </div>
           </div>
 
@@ -60,10 +60,10 @@ const Footer = () => {
             <p>© 2025 Tashdid Architects. All rights reserved.</p>
           </div>
           <div className={styles.termsSection}>
-            <a href="#">Terms & Conditions</a>
+            <Link to="/terms">Terms & Conditions</Link>
           </div>
           <div className={styles.brandingSection}>
-            <p>Branding & Website Designed By <a href="https://sarverjii.github.io/Portfolio-Website" className={styles.hintt}>VirtuallyTrue</a></p>
+            <p>Branding & Website Designed By <a href="https://sarverjii.github.io/Portfolio-Website" className={styles.hintt} target='_blank'>VirtuallyTrue</a></p>
           </div>
         </div>
       </div>

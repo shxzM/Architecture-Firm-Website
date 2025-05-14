@@ -5,30 +5,31 @@
   }
   
   .FormBackground {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     background-image: url("../../assets/Formbg.jpeg");
     background-position: center;
     background-size: cover;
-    padding: 40px;
+    padding: clamp(1rem, 2rem, 3rem);
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
   .divforborder {
-    
     display: flex;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     width: 100%;
     max-width: 1200px;
+    border-radius: 12px;
+    overflow: hidden;
   }
   
   .ContactContainer {
     flex: 1;
-    padding: 40px;
+    padding: clamp(2rem, 3rem, 4rem);
     color: white;
     display: flex;
     flex-direction: column;
@@ -38,10 +39,11 @@
   .ContactContainer h2 {
     font-size: 3rem;
     letter-spacing: 2px;
-    margin-bottom: 20px;
+    margin-bottom: clamp(1rem, 1.5rem, 2rem);
   }
   
   .ContactContainer h1 {
+    font-size: clamp(1.5rem, 2rem, 2.5rem);
     font-size: clamp(1rem,2rem,2rem);
     font-weight: 300;
     line-height: 1.3;

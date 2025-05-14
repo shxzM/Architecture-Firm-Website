@@ -45,6 +45,7 @@
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
+  padding-top: 5rem;
 }
 .details {
   font-size: 1.1rem;
@@ -102,6 +103,26 @@
   }
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding-top: 7rem;
+  }
+
+  .HeaderBG {
+    height: 60vh;
+    justify-content: center;
+    text-align: center;
+    padding-top: 4.5rem;
+  }
+
+  .rightHeading {
+    justify-content: center;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+}
 
 /* Fullscreen modal image */
 .modalOverlay {
@@ -134,23 +155,6 @@
   to {
     transform: scale(1);
     opacity: 1;
-  }
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .HeaderBG {
-    height: 45vh;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .rightHeading {
-    justify-content: center;
-  }
-
-  .image {
-    max-width: 100%;
   }
 }
 
